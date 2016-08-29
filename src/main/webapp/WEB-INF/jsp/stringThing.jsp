@@ -22,8 +22,13 @@
     Reverse Sentence: <c:out value="${reverseString}"/><br>
     Pig Latin: <c:out value="${pigLatin}"/><br>
     Google Links:<br>
+
     <c:forEach var="googleLink" items="${googleLinks}">
         <a href="<c:out value="${googleLink}"/>"><c:out value="${googleLink}"/></a><br>
+    </c:forEach>
+
+    <c:forEach var="prettyLink" items="${prettyLinks}">
+        <a href="<c:out value="${prettyLink.link}"/>"><c:out value="${prettyLink.prettyText}"/></a><br>
     </c:forEach>
 </c:if>
 

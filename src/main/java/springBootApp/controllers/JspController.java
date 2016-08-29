@@ -3,6 +3,7 @@ package springBootApp.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import springBootApp.entities.PrettyLink;
 
 import java.util.ArrayList;
 
@@ -49,6 +50,15 @@ public class JspController {
             googleLinks.add("https://www.google.com/webhp?#safe=off&hl=en&q="+word);
         }
         map.addAttribute("googleLinks",googleLinks);
+
+        ArrayList<PrettyLink> prettyLinks = new ArrayList<>();
+        for(String word : words) {
+            PrettyLink prettyLink = new PrettyLink(word,"https://www.google.com/webhp?#safe=off&hl=en&q="+word);
+            prettyLinks.add(prettyLink);
+        }
+        map.addAttribute("prettyLinks",prettyLinks);
+
+
         return "stringThing";
     }
 
